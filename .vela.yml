@@ -1,0 +1,20 @@
+version: "1"
+
+steps:
+  - name: install
+    image: node:latest
+    pull: always
+    commands:
+      - node install
+
+  - name: lint
+    image: node:latest
+    pull: always
+    commands:
+      - node test
+
+  - name: build
+    image: node:latest
+    pull: always
+    commands:
+      - node build
