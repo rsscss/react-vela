@@ -1,20 +1,13 @@
+
 version: "1"
+metadata:
+  template: true
 
 steps:
-  - name: install
-    image: node:latest
-    pull: always
+  - name: Test and Build
     commands:
-      - node install
-
-  - name: lint
-    image: node:latest
+      - npm install
+    image: node:16-alpine
     pull: always
-    commands:
-      - node test
-
-  - name: build
-    image: node:latest
-    pull: always
-    commands:
-      - node build
+    ruleset:
+      event: [ push, pull_request ]
