@@ -3,11 +3,14 @@ version: "1"
 metadata:
   template: true
 
+before_script:
+    - npm install
+
 steps:
-  - name: Test and Build..
-    commands:
-      - npm install
-    image: node:16-alpine
+  - name: build
+    image: node:lts-alpine
     pull: always
+    commands:
+      - npm run build
     ruleset:
       event: [ push, pull_request ]
