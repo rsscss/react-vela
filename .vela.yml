@@ -33,6 +33,6 @@ steps:
     pull: always
     secrets: [ docker_username, docker_password, registry ]
     commands:
-      - echo "docker_password" | docker login -u "docker_username" -p "docker_password" registry
-      - docker build --pull -t "rsscss/react-vela:latest" .
-      - docker push "rsscss/react-vela:latest"
+      - echo docker_password | docker login -u docker_username -p docker_password registry
+      - docker build --pull -t rsscss/react-vela:latest .
+      - docker push rsscss/react-vela:latest
