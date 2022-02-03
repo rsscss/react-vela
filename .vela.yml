@@ -29,12 +29,10 @@ steps:
       event: [ push, pull_request ]
 
   - name: deploy
-    image: target/vela-docker:latest
-    secrets: [ docker_password ]
-    parameters:
-      registry: index.docker.io
-      repo: index.docker.io/rsscss/react-vela
-      username: rsscss
-      tags:
-        - latest
-        - v1.0.0
+    image: docker:latest
+    pull: always
+    secrets: [ docker_username, docker_password, registry ]
+    commands:
+      - echo "docker_password" | docker login -u "docker_username" -p "docker_password" registry
+      - docker build --pull -t "rsscss/react-vela:latest" .
+      - docker push "rsscss/react-vela:latest"
