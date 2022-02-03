@@ -19,3 +19,11 @@ steps:
       - npm run build
     ruleset:
       event: [ push, pull_request ]
+  
+  - name: test
+    image: node:lts-alpine
+    pull: always
+    commands:
+      - npm test
+    ruleset:
+      event: [ push, pull_request ]
