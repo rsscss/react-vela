@@ -3,10 +3,15 @@ version: "1"
 metadata:
   template: true
 
-before_script:
-    - npm install
-
 steps:
+  - name: install
+    image: node:lts-alpine
+    pull: always
+    commands:
+      - npm install
+    ruleset:
+      event: [ push, pull_request ]
+
   - name: build
     image: node:lts-alpine
     pull: always
