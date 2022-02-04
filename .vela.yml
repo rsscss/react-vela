@@ -31,9 +31,8 @@ steps:
   - name: deploy
     image: target/vela-docker:latest
     pull: always
+    secrets: [ docker_username, docker_password ]
     parameters:
       registry: index.docker.io
       repo: rsscss/react-vela
       tags: [ latest ]
--username: docker_username
--password: docker_password
