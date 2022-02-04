@@ -28,11 +28,20 @@ steps:
     ruleset:
       event: [ push, pull_request ]
   
-  - name: deploy
+  - name: deploy_local
     image: target/vela-docker:latest
     pull: always
     parameters:
       dry_run: true
+      registry: index.docker.io
+      repo: rsscss/react-vela
+      tags: [ latest ]
+  
+  - name: deploy_remote
+    image: target/vela-docker:latest
+    pull: always
+    secrets: [ docker_username, docker_password ]
+    parameters:
       registry: index.docker.io
       repo: rsscss/react-vela
       tags: [ latest ]
