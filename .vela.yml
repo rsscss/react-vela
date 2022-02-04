@@ -38,12 +38,21 @@ steps:
       tags: [ latest ]
   
   - name: deploy
-    image: target/vela-kaniko
-    secrets: [ docker_password ]
+    image: target/vela-docker:latest
+    pull: always
+    secrets: [ docker_username, docker_password ]
     parameters:
       registry: index.docker.io
       repo: index.docker.io/rsscss/react-vela
-      username: rsscss
-      tags:
-        - latest
-        - v1.0.0
+
+
+secrets:
+  - name: docker_username
+    key: vela/hello-world/docker_username
+    engine: native
+    type: repo
+
+  - name: docker_password
+    key: vela/hello-world/docker_password
+    engine: native
+    type: repo
