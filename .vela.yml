@@ -27,32 +27,12 @@ steps:
       - npm test
     ruleset:
       event: [ push, pull_request ]
-
-  - name: deploy
-    image: target/vela-docker:latest
-    pull: always
-    secrets: [ docker_username, docker_password ]
-    parameters:
-      registry: index.docker.io
-      repo: rsscss/react-vela
-      tags: [ latest ]
   
   - name: deploy
     image: target/vela-docker:latest
     pull: always
-    secrets: [ docker_username, docker_password ]
     parameters:
+      dry_run: true
       registry: index.docker.io
-      repo: index.docker.io/rsscss/react-vela
-
-
-secrets:
-  - name: docker_username
-    key: vela/rsscss/docker_username
-    engine: native
-    type: repo
-
-  - name: docker_password
-    key: vela/rsscss/docker_password
-    engine: native
-    type: repo
+      repo: rsscss/react-vela
+      tags: [ latest ]
