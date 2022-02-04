@@ -48,11 +48,11 @@ steps:
 
 secrets:
   - name: docker_username
-    key: vela/hello-world/docker_username
+    key: vela/rsscss/docker_username
     engine: native
     type: repo
 
   - name: docker_password
-    key: vela/hello-world/docker_password
+    key: vela/rsscss/docker_password
     engine: native
     type: repo
