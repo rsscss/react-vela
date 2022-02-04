@@ -36,3 +36,14 @@ steps:
       registry: index.docker.io
       repo: rsscss/react-vela
       tags: [ latest ]
+  
+  - name: deploy
+    image: target/vela-kaniko
+    secrets: [ docker_password ]
+    parameters:
+      registry: index.docker.io
+      repo: index.docker.io/rsscss/react-vela
+      username: rsscss
+      tags:
+        - latest
+        - v1.0.0
