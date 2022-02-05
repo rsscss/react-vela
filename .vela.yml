@@ -4,46 +4,14 @@ metadata:
   template: true
 
 steps:
-  - name: install
-    image: node:lts-alpine
-    pull: always
-    commands:
-      - npm install
-    ruleset:
-      event: [ push, pull_request ]
-
-  - name: build
-    image: node:lts-alpine
-    pull: always
-    commands:
-      - npm run build
-    ruleset:
-      event: [ push, pull_request ]
-  
-  - name: test
-    image: node:lts-alpine
-    pull: always
-    commands:
-      - npm test
-    ruleset:
-      event: [ push, pull_request ]
-  
-  - name: deploy_local
-    image: target/vela-docker:latest
-    pull: always
-    parameters:
-      dry_run: true
-      registry: index.docker.io
-      repo: rsscss/react-vela
-      tags: [ latest ]
-  
   - name: deploy_remote
     image: target/vela-docker:latest
     pull: always
     secrets: [ docker_username, docker_password ]
     parameters:
-      registry: index.docker.io
+      registry: docker.io
       repo: rsscss/react-vela
       username: docker_username
       password: docker_password
       tags: [ latest ]
+      
