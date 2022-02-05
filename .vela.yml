@@ -12,6 +12,6 @@ steps:
       registry: index.docker.io
       repo: rsscss/react-vela
       username: docker_username
-      password: ${DOCKER_PASSWORD}
+      password: docker_password
       tags: [ latest ]
       
