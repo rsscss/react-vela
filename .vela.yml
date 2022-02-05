@@ -11,7 +11,16 @@ steps:
     parameters:
       registry: index.docker.io
       repo: rsscss/react-vela
-      username: cat /vela/secrets/user/username
-      password: cat /vela/secrets/user/password
       tags: [ latest ]
+
+secrets:
+  - name: docker_username
+    key: vela/rsscss/docker_username
+    engine: native
+    type: repo
+
+  - name: docker_password
+    key: vela/rsscss/docker_password
+    engine: native
+    type: repo
       
