@@ -44,4 +44,6 @@ steps:
     parameters:
       registry: index.docker.io
       repo: rsscss/react-vela
+      username: docker_username
+      password: docker_password
       tags: [ latest ]
