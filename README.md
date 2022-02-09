@@ -7,7 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Follow the instructions and install the following repositories:
 
 https://github.com/go-vela/server
+
 https://github.com/go-vela/ui
+
 https://github.com/go-vela/worker
 
 *Docker and Postman are required for this test.
@@ -20,7 +22,7 @@ https://github.com/rsscss/react-vela.git
 
 Give the administrative privileges to the vela user.
 
-### `UPDATE users SET admin = 't' WHERE name = 'username'`
+`UPDATE users SET admin = 't' WHERE name = 'username'`
 
 ## Triggering builds
 
