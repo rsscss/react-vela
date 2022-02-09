@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "7fc8bef0-532e-4a54-99d6-fe7937a7442c",
+		"name": "Vela",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/repos/rodrigoschamber/react-vela/builds",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{githubToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"author\": \"rodrigoschamber\",\n  \"branch\": \"main\",\n  \"commit\": \"{{commitCode}}\",\n  \"clone\": \"https://github.com/rsscss/react-vela.git\",\n  \"event\": \"push\",\n  \"message\": \"{{commitMessage}}\",\n  \"ref\": \"refs/heads/main\",\n  \"sender\": \"rodrigoschamber\",\n  \"source\": \"https://github.com/rsscss/react-vela/commit/{{commitCode}}\",\n  \"title\": \"push received from https://github.com/rsscss/react-vela\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ngrokURL}}/api/v1/repos/rsscss/react-vela/builds",
+					"host": [
+						"{{ngrokURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"repos",
+						"rsscss",
+						"react-vela",
+						"builds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/admin/users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{githubToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ngrokURL}}/api/v1/admin/users",
+					"host": [
+						"{{ngrokURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{githubToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"admin\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ngrokURL}}/api/v1/user",
+					"host": [
+						"{{ngrokURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/repos/rodrigoschamber/react-vela/chown",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{githubToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{ngrokURL}}/api/v1/repos/rsscss/react-vela/chown",
+					"host": [
+						"{{ngrokURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"repos",
+						"rsscss",
+						"react-vela",
+						"chown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/admin/hooks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{githubToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ngrokURL}}/api/v1/admin/hooks",
+					"host": [
+						"{{ngrokURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"hooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/hooks/rsscss/react-vela",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{githubToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"number\": 1,\n  \"source_id\": \"b6adb0ec-899f-11ec-9880-162f69601256\",\n  \"host\": \"github.com\",\n  \"event\": \"push\",\n  \"branch\": \"main\",\n  \"status\": \"success\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ngrokURL}}/api/v1/hooks/rsscss/react-vela",
+					"host": [
+						"{{ngrokURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"hooks",
+						"rsscss",
+						"react-vela"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
